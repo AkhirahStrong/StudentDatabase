@@ -4,34 +4,41 @@ public class StudentDatabase {
 
 	public static void main(String[] args) {
 		
+		//Arrays
 		String [] name = {"Jack", "Jill", "James", "Kent", "Kelly", "Kim", "Lerry", "Lilly", "Laem", "Marry"};
 		String [] hometown = {"Detroit", "Atlanta", "New York", "Dallas", "Lansing", "Orlando", "Ann Arbor", "Southfield", "Stone Mountain", "Clarkston"};
 		String [] favoriteFood = {"Fries", "Burgers", "Mac and Cheese", "Pizza", "Subs", "Egg Rolls", "Tacos", "Corn", "Rice", "Chips"};
 		String [] favoriteSong = {"Bad Habit - Ed Sheeran", "Stay Together - Al Green", "Drake & 21 Savage - Privileged Rappers", 
 				                  "Without Me - Halsey", "Hello - Adele", "Work - Rihanna", "I Look To You - Whitney Houston", "Change Me - Tamela Mann",
 				                  "Kiss Me More - Doja Cat","Save Your Tears - The Weekend" };
+		
+		
 		Scanner scan = new Scanner(System.in);
+		
+		//Global Vars
 		String studentInfo = "";
-		boolean valid = true;
 		String countinueSearch = "";
 		int studentNum = 0;
 		int addNumToName = 0;
 		
+		//Welcome output
 		System.out.println("Welcome to our Java class. Choose a student you want to know about. \n");
+		
+		//Print student number and name
 		System.out.println("Student Names: ");
-		
-		
 		for(String sName : name) {
 			System.out.println(addNumToName++ +1 + "." + sName);
 		}
 		
 		System.out.println("");
 		
+		//Start Loops
 		do {
 		System.out.println("Which student would you like to learn more about? (enter a number 1-10): ");
 		studentNum = scan.nextInt();
 		scan.nextLine();
 		
+		//Catch out of bound number
 		while(studentNum == 0 || studentNum >= 11) {
 			try {
 				System.out.printf("Student %d is %s %s", studentNum, name[studentNum - 1]);
@@ -42,6 +49,7 @@ public class StudentDatabase {
 			
 		}
 		
+		//Getting to know the student section
 		System.out.println("What would you like to know about " +  name[studentNum - 1] + "? Hometown, Favorite Food, or Favorute Song?");
 		studentInfo = scan.nextLine();		
 	    if(studentInfo.equalsIgnoreCase("Favorite Food")) {
@@ -62,7 +70,7 @@ public class StudentDatabase {
 		  }
 			 
 	}while(countinueSearch.equalsIgnoreCase("y"));
-			
+		scan.close();	
 	}	
 
 }
